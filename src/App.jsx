@@ -1,24 +1,35 @@
 import './App.css'
+import React, { useState } from 'react';
 
 function App() {
  //Aquí tu código
-const[name, setName]= useState("Sofia");
-const[newName,setNewName]= useState("");
+  const [name, setName] = useState("Sofía");
+  const [newName, setNewName] = useState("");
 
-
-return(
+  return (
     <div>
-<h1>Nombre de profesor:{name}</h1>
-<input
-type='text'
-value={newName}
-onChange={(e)=> setNewName(e,target)}
-placeholder="Ingresa el nuevo nombre"
-/>
-<button onClick={() => setName(newName)}>Actualizar Nombre</button>
-    </div>
-)
+      <h1>Nombre de profesor: {name}</h1>
+      
+      <ul>
+        <li onClick={() => setName("Data")}>Data</li>
+        <li onClick={() => setName("Reyes")}>Reyes</li>
+        <li onClick={() => setName("Yolanda")}>Yolanda</li>
+      </ul>
 
+      <input
+        type='text'
+        value={newName}
+        onChange={(e) => setNewName(e.target.value)}
+        placeholder="Ingresa el nuevo nombre"
+      />
+      <button onClick={() => {
+        setName(newName);
+        setNewName('');
+      }}>
+        Actualizar Nombre
+      </button>
+    </div>
+  )
 }
 
-export default App
+export default App;
